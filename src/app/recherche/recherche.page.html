@@ -1,11 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>recherche</ion-title>
-    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
+  <ion-item *ngFor="let user of list">
+    <ion-label>
+      <h2>{{user.nom}}</h2>
+    </ion-label>
+  </ion-item>
 </ion-content>

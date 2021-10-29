@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { LoadingController } from '@ionic/angular'; 
 import { AlertController } from '@ionic/angular';
 
@@ -11,35 +12,44 @@ import { AlertController } from '@ionic/angular';
 export class MotDePasseOublierPage implements OnInit {
 
   constructor(  private loadincontroller: LoadingController, private alertCtrl: AlertController) { }
-  async show() {
+
+  ngOnInit() {
+  }
+
+
+async alertPresent(){
+  const alert = await this.alertCtrl.create({
+    header:"Confirmation",
+    subHeader:"Email",
+    message:"veuillez verifier dans votre mail",
+    buttons: [
+      {
+        text:"Ok",
+        handler: () => {
+
+        }
+      }
+
+    ]
+
+  });
+  await alert.present()
+}
+
+
+
+  async show(form: NgForm) {
     const loading = this.loadincontroller.create({
       message: 'loading',
-      duration: 5000,
       showBackdrop: false,
+      //duration: 2000,
       spinner: 'bubbles'
     });
-    (await loading).present();
-    setTimeout(async ()=>{
+    (await loading).present(); 
+
+    if(form.value["email"] !=null){
       (await loading).dismiss();
-    },1000);
-    const alert = await this.alertCtrl.create({
-      header:"Confirmation",
-      subHeader:"Email",
-      message:"veuillez verifier dans votre mail",
-      buttons: [
-        {
-          text:"Ok",
-          handler: () => {
-  
-          }
-        }
-  
-      ]
-  
-    });
-    await alert.present()
-  }
-    ngOnInit() {
+      this.alertPresent();
     }
-  
+  }
   }

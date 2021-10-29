@@ -30,12 +30,22 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-    login()
+    async login()
     {
+      const loading = this.loadincontroller.create({
+        message: 'loading',
+        showBackdrop: false,
+        duration: 800,
+        spinner: 'bubbles'
+      });
+      (await loading).present(); 
+  
       if(this.email && this.password)
       {
+        (await loading).dismiss();
         this.firebaseAuth.signInWithEmailAndPassword(this.email, this.password).then(res => {
-          this.navCtrl.navigateForward(['accueil'])
+          
+          this.navCtrl.navigateForward(['accueil']);
         })
         
 

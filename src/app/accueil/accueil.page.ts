@@ -14,6 +14,7 @@ export class AccueilPage implements OnInit {
   allUsers : AngularFirestoreCollection;
   liste: Observable<any[]>;
   userData: string;
+  user: any;
 
   constructor(
     public firestore: AngularFirestore, 
@@ -23,10 +24,10 @@ export class AccueilPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getUserinfos();
-    {
-     
-      }
+    this.AuthentificationService.profile.subscribe(user=>{
+      this.user = user;
+    });
+     this.getUserinfos();
     
   }
 
