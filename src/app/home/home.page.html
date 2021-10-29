@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auth-form" >
+  <div class="logo">
+    <img src="./assets/1.png" alt="#">
+  </div>
+  <ion-grid>
+    <ioni-form>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/register']" expand="block" color="primary" style="margin-top: 10px;">Register</ion-button>
+
+
+        <p class="choix">Avez-vous déjà un compte?</p>
+
+        <ion-button [routerLink]="['/login']" expand="block" color="danger">Se connecter</ion-button>
+      </ion-col>
+    </ion-row>
+  </ioni-form>
+  </ion-grid>
+</ion-content>

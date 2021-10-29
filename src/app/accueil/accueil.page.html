@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="danger">Accueil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div>
+    <h4>Bienvenue {{nom}} !</h4>
+  </div>
+  
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-label>Prenom</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngFor="let user of liste |async">
+      <ion-item lines="none">
+        <ion-label>{{user.nom}}</ion-label>
+        <ion-label>{{user.prenom}}</ion-label>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+</ion-content>

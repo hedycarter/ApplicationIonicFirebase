@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reinitialiser votre mot de passe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="show ()" type="submit" color="danger" expand="block" >Envoyer</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <small>
+      Veillez entrer votre adresse email et nous vous enverrons les instructions pour
+      réinitialiser votre mot de passe
+    </small>
+  </form>
+</ion-content>
